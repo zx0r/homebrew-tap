@@ -1,7 +1,6 @@
 # Homebrew Tap for nvimx 🚀
 
 **The Professional Neovim Profile Manager**
-A fast and flexible Neovim profile manager for running, isolating, and maintaining multiple configurations with ease
 
 [![Release](https://img.shields.io/github/v/release/zx0r/nvimx)](https://github.com/zx0r/nvimx/releases)
 
