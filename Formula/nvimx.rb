@@ -1,25 +1,25 @@
 class Nvimx < Formula
-  desc "A fast and flexible Neovim profile manager for running, isolating, and maintaining multiple configurations with ease"
+  desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
   version "0.1.0"
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-apple-darwin.tar.gz"
-      sha256 "24d623e74c36f68ee63248bbcf85bf91607805215f127227147d243e638d7f48"
+      sha256 "fa374e27799458eb3647c81de1232c28ac921cefb5bd7a8ebac5f9fb871f0bab"
     end
     if Hardware::CPU.intel?
       url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-apple-darwin.tar.gz"
-      sha256 "d8bfb203c7c7507309e744b6731cd99d78332a60390bca7f22ecb6f473ab5fa9"
+      sha256 "a7f25702f9db785623161d24c5dc4adc0ce964b7584ac0a5cd2b540f7048f248"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "a9b1bec85de141f6a5be9ec821b643c605ac7523c989f5b58fb249d82c3db7bb"
+      sha256 "0ce49971a3ca9f241491006fc1e4763bfff577c1f727bda2fa88e930c0d618e7"
     end
     if Hardware::CPU.intel?
       url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "716b31493aaef8602c7eb49d7b3bb756a923f091bab10a5d59a4765b7ab84ee0"
+      sha256 "e74ff63ec5dba5ca6b770cea55351ad936dde9b5d61e910af869f02bb08a49db"
     end
   end
   license "MIT"
