@@ -2,28 +2,68 @@ class Nvimx < Formula
   desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
   version "0.1.0"
-
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-apple-darwin.tar.gz"
-    sha256 "caaaec1e17325d23ddf0815e56ababe1264e15c953223dbf134de8f0558283cf"
-  elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-apple-darwin.tar.gz"
-    sha256 "de3fddd93ebb1c00f27229802089ca90339564dea25bea0fcee8d04c726f60a5"
-  elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-unknown-linux-gnu.tar.gz"
-    sha256 "d01205ff9bab08f33e597c54e392bd67ed0d4a7286ce2e1f359c41c34bcb4e18"
-  elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "d0074b0a68c3b9a44536352c6a18006522970cfbf8135caeaacedbc3f2984242"
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-apple-darwin.tar.gz"
+      sha256 "f52093f3f23069e281f6c95c32b30814cc85b0be0f5f2f029b30e1c2a58cf202"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-apple-darwin.tar.gz"
+      sha256 "0363a3272152d2deb5b1dd690c30ba89a79a6df224cee27e2b0a076d1377e3c0"
+    end
   end
-
+  if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3a309a93e6875ac0e421383e883516a87034ff6485a7baef6602638a5603845c"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d3f905e7eee406d1d809db359caa83940748bfe06197b6642596b298bc2747f2"
+    end
+  end
   license "MIT"
 
-  def install
-    bin.install "nvimx"
+  BINARY_ALIASES = {
+    "aarch64-apple-darwin":               {},
+    "aarch64-unknown-linux-gnu":          {},
+    "aarch64-unknown-linux-musl-dynamic": {},
+    "aarch64-unknown-linux-musl-static":  {},
+    "x86_64-apple-darwin":                {},
+    "x86_64-unknown-linux-gnu":           {},
+    "x86_64-unknown-linux-musl-dynamic":  {},
+    "x86_64-unknown-linux-musl-static":   {},
+  }.freeze
+
+  def target_triple
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
+    os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
+
+    "#{cpu}-#{os}"
   end
 
-  test do
-    system "#{bin}/nvimx", "--version"
+  def install_binary_aliases!
+    BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
+      dests.each do |dest|
+        bin.install_symlink bin/source.to_s => dest
+      end
+    end
+  end
+
+  def install
+    bin.install "nvimx" if OS.mac? && Hardware::CPU.arm?
+    bin.install "nvimx" if OS.mac? && Hardware::CPU.intel?
+    bin.install "nvimx" if OS.linux? && Hardware::CPU.arm?
+    bin.install "nvimx" if OS.linux? && Hardware::CPU.intel?
+
+    install_binary_aliases!
+
+    # Homebrew will automatically install these, so we don't need to do that
+    doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
+    leftover_contents = Dir["*"] - doc_files
+
+    # Install any leftover files in pkgshare; these are probably config or
+    # sample files.
+    pkgshare.install(*leftover_contents) unless leftover_contents.empty?
   end
 end
