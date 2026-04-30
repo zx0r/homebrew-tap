@@ -5,13 +5,13 @@ class Nvimx < Formula
 
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-aarch64-apple-darwin.tar.gz"
-    sha256 "3ba6a9be83c4b46a8258206d4f1792b98416b42209985f25dc7e182f71841902"
+    sha256 "a9009165242f62295b585409573fbee4456577af1d619e12e37b6b90371ad923"
   elsif OS.mac? && Hardware::CPU.intel?
     url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-apple-darwin.tar.gz"
-    sha256 "eafefbc26ccf943a62d74969f15d7317fb1ee2ea2e6c9a638ed143cbb1106ec0"
+    sha256 "df9b8452283838d542014a44463c434651707f06f53f93f6587d5dbe7fd166e1"
   elsif OS.linux? && Hardware::CPU.intel?
     url "https://github.com/zx0r/nvimx/releases/download/v0.1.0/nvimx-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "b9272961d10efc058ac2f314018dae376b86275375e2244e596f9e80bc93269b"
+    sha256 "c206d1e27c06cb77b10ccdb716b087241483bd29e1b777fc049df2c34bc4509f"
   end
 
   license "MIT"
