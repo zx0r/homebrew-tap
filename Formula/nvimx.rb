@@ -1,7 +1,6 @@
 class Nvimx < Formula
   desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
-  version "0.1.1"
 
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/zx0r/nvimx/releases/download/v0.1.1/nvimx-aarch64-apple-darwin.tar.gz"
