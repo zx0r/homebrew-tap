@@ -1,17 +1,17 @@
 class Nvimx < Formula
   desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
-  version "0.1.4"
+  version "0.1.5"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.4/nvimx-aarch64-apple-darwin.tar.gz"
-    sha256 "840386e9f4c0b6c5f5e7534f45d35d45de43f0c0470cf48d998685f31aa59f3a"
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.5/nvimx-aarch64-apple-darwin.tar.gz"
+    sha256 "dcd9a5e3798b74424f61904587b9b8ee09280dcfa93ee2f4cfdc63bf15ecaab0"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.4/nvimx-x86_64-apple-darwin.tar.gz"
-    sha256 "542e478cc8be938cc119958c2970419e350e3f3c53c478eba5f1c1cdfc5f31da"
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.5/nvimx-x86_64-apple-darwin.tar.gz"
+    sha256 "17767dbaffa675cb2d85504d6fb4a7f4206a45e8e358149a95f50818955b1526"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/nvimx/releases/download/v0.1.4/nvimx-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "e432defcb361e5072ee928516360f238a8e52bf2a9a485e6c545b73577fb2f8d"
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.5/nvimx-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "6fa54d97d1b7c299dd6bedb09db377b863e1245869ab2e2fcae58058f6582c68"
   end
 
   license "MIT"
