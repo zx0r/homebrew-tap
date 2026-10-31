@@ -1,17 +1,17 @@
 class Xstory < Formula
   desc "Minimalist Unix shell history engine"
   homepage "https://github.com/zx0r/xstory"
-  version "0.1.2"
+  version "0.1.3"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/zx0r/xstory/releases/download/v0.1.2/xstory-aarch64-apple-darwin.tar.gz"
-    sha256 "400abf51775c8680e6727e1bdccf68f3d8f8a4e6f46d87758678025513840875"
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.3/xstory-aarch64-apple-darwin.tar.gz"
+    sha256 "5499ba9f9010666fddf138a9b888223c498ed40fd7536ef0fa727c2b94dc0075"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/xstory/releases/download/v0.1.2/xstory-x86_64-apple-darwin.tar.gz"
-    sha256 "2d1f77ec9035b23fc5f2a027ade0883e8d623aec4f510a8ae8a8adf261ac555b"
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.3/xstory-x86_64-apple-darwin.tar.gz"
+    sha256 "932701ee2cd3f25e1df38ed48d2bc03cb9045dc0b27d4755718269c37e6e43e9"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/xstory/releases/download/v0.1.2/xstory-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "6c00b1f13e36625f748fdc38116a6164839c0857c5d7c972f8dff6afc8f915ba"
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.3/xstory-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "cac1e4f40f55423b626a411830980a683e4d7ff82fad80585cfc94d72739a4e9"
   end
 
   license "MIT"
