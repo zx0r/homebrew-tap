@@ -1,26 +1,28 @@
-## homebrew-tap
+# zx0r/tap
 
-> Curated Homebrew formulas for developer tooling, system utilities, and CLI workflows.
+[![CI](https://github.com/zx0r/homebrew-tap/actions/workflows/ci.yml/badge.svg)](https://github.com/zx0r/homebrew-tap/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT%20%2F%20Apache--2.0-blue.svg?style=flat-square)](LICENSE-MIT)
+
+Curated Homebrew formulae for developer tooling and CLI workflows.
 
 ---
 
-### Catalog
+## Formulae
 
 <!-- CATALOG:START -->
 
-| Formula | Version | Description |
-| :--- | :--- | :--- |
-| [`nvimx`](https://github.com/zx0r/nvimx) | [![nvimx](https://img.shields.io/badge/nvimx-v0.1.6-2ea44f?style=flat-square&logo=neovim&logoColor=white)](https://github.com/zx0r/nvimx/releases) | Fast and flexible Neovim profile manager |
-| [`xstory`](https://github.com/zx0r/xstory) | [![xstory](https://img.shields.io/badge/xstory-v0.1.6-2ea44f?style=flat-square&logo=gnubash&logoColor=white)](https://github.com/zx0r/xstory/releases) | Minimalist Unix shell history engine |
+| Formula                                    | Version                                                                                                                                                | Description                              |
+| :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| [`nvimx`](https://github.com/zx0r/nvimx)   | [![nvimx](https://img.shields.io/badge/nvimx-v0.1.6-2ea44f?style=flat-square&logo=neovim&logoColor=white)](https://github.com/zx0r/nvimx/releases)     | Fast and flexible Neovim profile manager |
+| [`xstory`](https://github.com/zx0r/xstory) | [![xstory](https://img.shields.io/badge/xstory-v0.1.6-2ea44f?style=flat-square&logo=gnubash&logoColor=white)](https://github.com/zx0r/xstory/releases) | Minimalist Unix shell history engine     |
 
 <!-- CATALOG:END -->
 
 ---
 
-### Installation
+## Installation
 
 ```bash
-
 brew tap zx0r/tap
 brew install <formula>
 
@@ -36,7 +38,7 @@ brew trust --formula zx0r/tap/<formula>
 
 ---
 
-### License
+## License
 
 Distributed under the terms of both the MIT license and the Apache License (Version 2.0).
 
