@@ -48,7 +48,7 @@ jobs:
               raw = File.read(f)
               name = File.basename(f, ".rb")
               desc = raw[/desc\s+"([^"]+)"/, 1] || ""
-              version = raw[/version\s+"([^"]+)"/, 1] || ""
+              version = raw[/version\s+"([^"]+)"/, 1] || raw[%r{releases/download/v?([^/]+)/}, 1] || ""
               homepage = raw[/homepage\s+"([^"]+)"/, 1] || "https://github.com/zx0r/#{name}"
               logo = logos[name] || "homebrew"
 
