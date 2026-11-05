@@ -26,6 +26,6 @@ class Xstory < Formula
   end
 
   test do
-    system bin/"xstory", "--version"
+    assert_match "xstory #{version}", shell_output("#{bin}/xstory --version")
   end
 end

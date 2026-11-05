@@ -26,6 +26,6 @@ class Nvimx < Formula
   end
 
   test do
-    system bin/"nvimx", "--version"
+    assert_match "nvimx #{version}", shell_output("#{bin}/nvimx --version")
   end
 end
