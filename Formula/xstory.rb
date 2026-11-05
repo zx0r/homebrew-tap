@@ -1,7 +1,7 @@
 class Xstory < Formula
   desc "Minimalist Unix shell history engine"
   homepage "https://github.com/zx0r/xstory"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   on_macos do
     on_arm do

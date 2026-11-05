@@ -55,12 +55,12 @@ jobs:
               badge_url = "https://img.shields.io/badge/#{name}-v#{version}-2ea44f?style=flat-square&logo=#{logo}&logoColor=white"
               badge_link = "#{homepage}/releases"
 
-              rows << "| [`#{name}`](#{homepage}) | [![#{name}](#{badge_url})](#{badge_link}) | #{desc} | `brew install zx0r/tap/#{name}` |"
+              rows << "| [`#{name}`](#{homepage}) | [![#{name}](#{badge_url})](#{badge_link}) | #{desc} |"
             end
 
             table = [
-              "| Formula | Version | Description | Quick Install |",
-              "| :--- | :--- | :--- | :--- |",
+              "| Formula | Version | Description |",
+              "| :--- | :--- | :--- |",
               rows.join("\n")
             ].join("\n")
 

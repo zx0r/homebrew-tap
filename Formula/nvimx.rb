@@ -1,7 +1,7 @@
 class Nvimx < Formula
   desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   on_macos do
     on_arm do
