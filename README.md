@@ -1,9 +1,6 @@
 # zx0r/tap
 
-[![CI](https://github.com/zx0r/homebrew-tap/actions/workflows/ci.yml/badge.svg)](https://github.com/zx0r/homebrew-tap/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-MIT%20%2F%20Apache--2.0-blue.svg?style=flat-square)](LICENSE-MIT)
-
-Curated Homebrew formulae for developer tooling and CLI workflows.
+> Curated Homebrew formulae for developer tooling and CLI workflows.
 
 ---
 
