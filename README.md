@@ -19,13 +19,13 @@
 
 ### Installation
 
-```shell
-# Direct Install (Standalone)
-brew install zx0r/tap/<formula>
-```
-
-*Example:*
 ```bash
 brew tap zx0r/tap
 brew install <formula>
+```
+
+Or install directly:
+
+```bash
+brew install zx0r/tap/<formula>
 ```
