@@ -1,0 +1,43 @@
+name: "CI"
+
+on:
+  pull_request:
+    paths:
+      - "Formula/**"
+  push:
+    branches: ["main"]
+    paths:
+      - "Formula/**"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: "ci-${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: "Audit & Style"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    permissions:
+      contents: "read"
+    steps:
+      - name: "Harden Runner"
+        uses: "step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43" # v2.22.3
+        with:
+          egress-policy: "audit"
+
+      - name: "Checkout Repository"
+        uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1" # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Setup Homebrew"
+        uses: "Homebrew/actions/setup-homebrew@1f8e202ffddf94def7f42f6fa3a482e821489f9c"
+
+      - name: "Verify Formulae Integrity"
+        run: |
+          brew style Formula/
+          brew audit --tap=zx0r/tap --strict Formula/*.rb
