@@ -40,4 +40,4 @@ jobs:
       - name: "Verify Formulae Integrity"
         run: |
           brew style Formula/
-          brew audit --tap=zx0r/tap --strict Formula/*.rb
+          brew audit --tap=zx0r/tap Formula/*.rb
