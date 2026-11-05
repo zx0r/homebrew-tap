@@ -1,0 +1,92 @@
+name: "Sync Tap Catalog"
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "Formula/**"
+  workflow_dispatch:
+
+concurrency:
+  group: "tap-readme-sync"
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  sync-catalog:
+    name: "Regenerate Catalog"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    permissions:
+      contents: "write"
+
+    steps:
+      - name: "Harden Runner"
+        uses: "step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43" # v2.22.3
+        with:
+          egress-policy: "audit"
+
+      - name: "Checkout Tap Repository"
+        uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1" # v7.0.1
+        with:
+          persist-credentials: true
+
+      - name: "Update README Catalog"
+        run: |
+          ruby << 'EOF'
+            readme_file = "README.md"
+            content = File.read(readme_file)
+
+            logos = {
+              "nvimx" => "neovim",
+              "xstory" => "gnubash"
+            }
+
+            rows = []
+            Dir.glob("Formula/*.rb").sort.each do |f|
+              raw = File.read(f)
+              name = File.basename(f, ".rb")
+              desc = raw[/desc\s+"([^"]+)"/, 1] || ""
+              version = raw[/version\s+"([^"]+)"/, 1] || ""
+              homepage = raw[/homepage\s+"([^"]+)"/, 1] || "https://github.com/zx0r/#{name}"
+              logo = logos[name] || "homebrew"
+
+              badge_url = "https://img.shields.io/badge/#{name}-v#{version}-2ea44f?style=flat-square&logo=#{logo}&logoColor=white"
+              badge_link = "#{homepage}/releases"
+
+              rows << "| [`#{name}`](#{homepage}) | [![#{name}](#{badge_url})](#{badge_link}) | #{desc} | `brew install zx0r/tap/#{name}` |"
+            end
+
+            table = [
+              "| Formula | Version | Description | Quick Install |",
+              "| :--- | :--- | :--- | :--- |",
+              rows.join("\n")
+            ].join("\n")
+
+            marker_start = "<!-- CATALOG:START -->"
+            marker_end = "<!-- CATALOG:END -->"
+
+            pattern = /#{Regexp.escape(marker_start)}[\s\S]*?#{Regexp.escape(marker_end)}/
+
+            if content.match?(pattern)
+              new_content = content.sub(pattern, "#{marker_start}\n\n#{table}\n\n#{marker_end}")
+              File.write(readme_file, new_content)
+              puts "Catalog updated successfully."
+            else
+              abort "Marker <!-- CATALOG:START --> not found in #{readme_file}"
+            end
+          EOF
+
+      - name: "Commit and Push Changes"
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+          if ! git diff --staged --quiet; then
+            git commit -m "docs(catalog): sync formulae versions in README"
+            git push origin HEAD:main
+          else
+            echo "Catalog is already up to date."
+          fi
