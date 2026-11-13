@@ -1,31 +1,26 @@
 class Nvimx < Formula
   desc "Fast and flexible Neovim profile manager"
   homepage "https://github.com/zx0r/nvimx"
-  license any_of: ["Apache-2.0", "MIT"]
+  version "0.1.7"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/zx0r/nvimx/releases/download/v0.1.6/nvimx-aarch64-apple-darwin.tar.gz"
-      sha256 "1048aa22f962027d28e0304675f02502ac2fcf4f148038e504ec5ded2e4ab76c"
-    end
-    on_intel do
-      url "https://github.com/zx0r/nvimx/releases/download/v0.1.6/nvimx-x86_64-apple-darwin.tar.gz"
-      sha256 "28cdc22a5092a584d82c94f125d3c8cf866448b7974a360cd0079f7843b53c97"
-    end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.7/nvimx-aarch64-apple-darwin.tar.gz"
+    sha256 "213195622b783653623ed54b9f5479d60aac13e6d55aac0f3731a66d4846e18d"
+  elsif OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.7/nvimx-x86_64-apple-darwin.tar.gz"
+    sha256 "8c5869a7b3a8b18ac869fb619fcc1f4a194ba690b382c90076aaebec718314e4"
+  elsif OS.linux? && Hardware::CPU.intel?
+    url "https://github.com/zx0r/nvimx/releases/download/v0.1.7/nvimx-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "9044fcd28fabdb983d260ac580156973f37e8eb0673d04e18872ef97e2bd42c1"
   end
 
-  on_linux do
-    on_intel do
-      url "https://github.com/zx0r/nvimx/releases/download/v0.1.6/nvimx-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "10f8e11a302c722595b20ea5fc467c9dae7908eb61aed3becfb168c766cc48a4"
-    end
-  end
+  license "MIT"
 
   def install
     bin.install "nvimx"
   end
 
   test do
-    assert_match "nvimx #{version}", shell_output("#{bin}/nvimx --version")
+    system "#{bin}/nvimx", "--version"
   end
 end
