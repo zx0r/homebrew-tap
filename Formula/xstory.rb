@@ -1,31 +1,26 @@
 class Xstory < Formula
   desc "Minimalist Unix shell history engine"
   homepage "https://github.com/zx0r/xstory"
-  license any_of: ["Apache-2.0", "MIT"]
+  version "0.1.7"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/zx0r/xstory/releases/download/v0.1.6/xstory-aarch64-apple-darwin.tar.gz"
-      sha256 "fe81e8a7c4cd906a6b4fd80fa39ef32a507b0fa5c11150e5f0c580f503857e63"
-    end
-    on_intel do
-      url "https://github.com/zx0r/xstory/releases/download/v0.1.6/xstory-x86_64-apple-darwin.tar.gz"
-      sha256 "bf14b0ea941541dbdf8f2eb99aa8a63c42628dba383010fb986f1764fbbe1854"
-    end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.7/xstory-aarch64-apple-darwin.tar.gz"
+    sha256 "e3440bc134dbbbd8b45cc70f82a4b6a2db2f03f7f2eacf76a408ad352c3f39b1"
+  elsif OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.7/xstory-x86_64-apple-darwin.tar.gz"
+    sha256 "79d07936998187e3d74269491863ebf6cb69ea2c53013c56e9d623fe2f5f074d"
+  elsif OS.linux? && Hardware::CPU.intel?
+    url "https://github.com/zx0r/xstory/releases/download/v0.1.7/xstory-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "b82b95303e2d481426f591b0af0a4d75fb60efface0b623cae1bd95b3dabccaa"
   end
 
-  on_linux do
-    on_intel do
-      url "https://github.com/zx0r/xstory/releases/download/v0.1.6/xstory-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c3ca739d3e4bad9d2abb16ed45a2fe2d51640d1666131088a4557eda32a3ab5f"
-    end
-  end
+  license "MIT"
 
   def install
     bin.install "xstory"
   end
 
   test do
-    assert_match "xstory #{version}", shell_output("#{bin}/xstory --version")
+    system "#{bin}/xstory", "--version"
   end
 end
