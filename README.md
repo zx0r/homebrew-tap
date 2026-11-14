@@ -10,6 +10,7 @@
 
 | Formula | Version | Description |
 | :--- | :--- | :--- |
+| [`xj`](https://github.com/zx0r/xj) | [![xj](https://img.shields.io/badge/xj-v0.1.0-2ea44f?style=flat-square&logo=homebrew&logoColor=white)](https://github.com/zx0r/xj/releases) | Fast and flexible Neovim profile manager |
 | [`xw`](https://github.com/zx0r/xw) | [![xw](https://img.shields.io/badge/xw-v0.1.0-2ea44f?style=flat-square&logo=homebrew&logoColor=white)](https://github.com/zx0r/xw/releases) | Ultra fast widgets for tmux and status lines |
 
 <!-- CATALOG:END -->
