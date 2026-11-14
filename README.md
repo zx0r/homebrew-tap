@@ -10,9 +10,6 @@
 
 | Formula | Version | Description |
 | :--- | :--- | :--- |
-| [`linex`](https://github.com/zx0r/linex) | [![linex](https://img.shields.io/badge/linex-v0.1.2-2ea44f?style=flat-square&logo=homebrew&logoColor=white)](https://github.com/zx0r/linex/releases) | Fast, zero-overhead terminal state widgets for tmux and status lines |
-| [`nvimx`](https://github.com/zx0r/nvimx) | [![nvimx](https://img.shields.io/badge/nvimx-v0.1.7-2ea44f?style=flat-square&logo=neovim&logoColor=white)](https://github.com/zx0r/nvimx/releases) | Fast and flexible Neovim profile manager |
-| [`xstory`](https://github.com/zx0r/xstory) | [![xstory](https://img.shields.io/badge/xstory-v0.1.7-2ea44f?style=flat-square&logo=gnubash&logoColor=white)](https://github.com/zx0r/xstory/releases) | Minimalist Unix shell history engine |
 | [`xw`](https://github.com/zx0r/xw) | [![xw](https://img.shields.io/badge/xw-v0.1.0-2ea44f?style=flat-square&logo=homebrew&logoColor=white)](https://github.com/zx0r/xw/releases) | Ultra fast widgets for tmux and status lines |
 
 <!-- CATALOG:END -->
