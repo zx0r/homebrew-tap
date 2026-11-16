@@ -1,17 +1,17 @@
 class Xc < Formula
   desc "Minimalist Unix shell history engine"
   homepage "https://github.com/zx0r/xc"
-  version "0.1.0"
+  version "0.1.1"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/zx0r/xc/releases/download/v0.1.0/xc-aarch64-apple-darwin.tar.gz"
-    sha256 "36fc6413f0d1f0f3a80b9f928c91c331ecf4f8639bf3e4723897c777696e6509"
+    url "https://github.com/zx0r/xc/releases/download/v0.1.1/xc-aarch64-apple-darwin.tar.gz"
+    sha256 "d9f7b00927a281922451f5146d9258d8a145188e55b40f52ac4ce6db928b232c"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/xc/releases/download/v0.1.0/xc-x86_64-apple-darwin.tar.gz"
-    sha256 "beeb72fdeeae2445e1ea41d51a5c34165b2dd4af45ae4194250db3c6d35d4db1"
+    url "https://github.com/zx0r/xc/releases/download/v0.1.1/xc-x86_64-apple-darwin.tar.gz"
+    sha256 "642956fcd20e698fa5cff3d67743ac69e16f50f9c4813ec7ee83c821de48a43f"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/zx0r/xc/releases/download/v0.1.0/xc-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "22c2a218dc180a927563a42772787062ebdda34c20e72d70d4bb63289d50fe7e"
+    url "https://github.com/zx0r/xc/releases/download/v0.1.1/xc-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "6f0aa7c5cfe18719f31b26433195589adca4c2f45ff1505c0a5de222a270073f"
   end
 
   license "MIT"
