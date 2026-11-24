@@ -6,18 +6,18 @@ class Ii < Formula
   on_macos do
     on_arm do
       url "https://github.com/zx0r/ii/releases/download/v0.1.0/ii-aarch64-apple-darwin.tar.gz"
-      sha256 "f26c6c2f1e32324459a0b8ef6bc37337c11ae9f336842a92053b5c3ec9b4d787"
+      sha256 "4f0f4a3f93f6d8935455f33930648f3459f19dbcc73eb7a2a4759f4a3eb54ac8"
     end
     on_intel do
       url "https://github.com/zx0r/ii/releases/download/v0.1.0/ii-x86_64-apple-darwin.tar.gz"
-      sha256 "8f5f67fa70828d4e479e1ef35e964b3b6582046e349d28f297c892aa936b48d0"
+      sha256 "daaec15646862d0d2dfabc7b692b9cdd764e88d5dce9aebbdee4f92fe6aaa363"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/zx0r/ii/releases/download/v0.1.0/ii-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e0b2022c65064936b802980321a8638596232eee9c3b0c33040a58c2bf90a63f"
+      sha256 "f1199b57d1368915cb5adf20b5cfb958de64e5d0aace12746b140696cf9ccf97"
     end
   end
 
